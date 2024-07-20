@@ -19,7 +19,7 @@ class Server{
         
         //configuracion del socket server
         this.io = socketio( this.server, {   cors: {
-            origin: '*', // O especifica los orígenes permitidos
+            origin: 'https://socket-server-react-1.vercel.app', // O especifica los orígenes permitidos
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type', 'Authorization'],
             credentials: true
@@ -32,7 +32,7 @@ class Server{
 
          // CORS
         this.app.use(cors({
-            origin: '*', // O especifica los orígenes permitidos
+            origin: 'https://socket-server-react-1.vercel.app', // O especifica los orígenes permitidos
             methods: ['GET', 'POST'],
             allowedHeaders: ['Content-Type', 'Authorization']
         }));

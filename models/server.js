@@ -18,15 +18,24 @@ class Server{
         this.server = http.createServer(this.app);
         
         //configuracion del socket server
-        this.io = socketio( this.server, { /*configuraciones*/ } );
+        this.io = socketio( this.server, {   cors: {
+            origin: '*', // O especifica los orígenes permitidos
+            methods: ['GET', 'POST'],
+            allowedHeaders: ['Content-Type', 'Authorization'],
+            credentials: true
+        } } );
     }
 
     middlewares(){
         //Desplegar directorio publico
          this.app.use( express.static(path.resolve( __dirname,'../public' )));
-         
-         //CORS
-         this.app.use( cors());
+
+         // CORS
+        this.app.use(cors({
+            origin: '*', // O especifica los orígenes permitidos
+            methods: ['GET', 'POST'],
+            allowedHeaders: ['Content-Type', 'Authorization']
+        }));
     }
 
     configurarSockets(){

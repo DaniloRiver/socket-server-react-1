@@ -34,7 +34,8 @@ class Server{
         this.app.use(cors({
             origin: 'https://socket-server-react-1.vercel.app', // O especifica los orígenes permitidos
             methods: ['GET', 'POST'],
-            allowedHeaders: ['Content-Type', 'Authorization']
+            allowedHeaders: ['Content-Type', 'Authorization'],
+            credentials:true
         }));
     }
 
